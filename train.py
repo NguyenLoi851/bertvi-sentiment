@@ -202,7 +202,7 @@ if __name__ == '__main__':
             optimizer.zero_grad()
             mask = (sents > 0).type(torch.LongTensor).to(opts.device)
 
-            preds = net(input_ids=sents, attention_mask=mask)
+            preds = net(sents, mask)
             logger.info('Checkpoint 1')
             loss = criterion(preds, labels)
 
